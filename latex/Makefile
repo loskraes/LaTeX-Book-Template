@@ -1,16 +1,18 @@
 
 PDFVIEWER=open
 
-TEXROOT=$(wildcard [a-zA-Z0-9]*.tex)
-PDFROOT=$(patsubst %.tex,%.pdf,$(TEXROOT))
-TEX=$(TEXROOT) $(wildcard [a-zA-Z0-9]*/*.tex)
-PDF=$(patsubst %.tex,%.pdf,$(TEX))
+LATEXROOT=$(wildcard [a-zA-Z0-9]*.tex)
+PDFROOT=$(patsubst %.tex,%.pdf,$(LATEXROOT))
+LATEX=$(LATEXROOT) $(wildcard [a-zA-Z0-9]*/*.tex)
+PDF=$(patsubst %.tex,%.pdf,$(LATEX))
 
 LATEXFLAGS=-pdf -M -MP -MF $(notdir $*).d -use-make
 
 # TODO:
 default: 
 	echo TODO
+
+all: report.pdf
 
 report.pdf:
 report.pdf.pvc:
@@ -35,3 +37,8 @@ _dyn/git-version.tex:
 _dyn/git-version-short.tex: _dyn/git-version.tex
 	cat $< | sed 's/-[0-9a-h]\+$$//' > $@
 
+
+dist-clean:
+	latexmk -C
+	cd content && latexmk -C
+	rm -fr *.d */*.d
