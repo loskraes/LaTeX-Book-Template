@@ -1,0 +1,8 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{arsar}[2025/01/11 Custom template]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Function can be use in many places
+%
+% \inputMake{filaneme} -- input le filename or require for a make to latexmk
+\newcommand\inputMake[1]{\InputIfFileExists{#1}{\expandafter}{\typeout{No file #1.}}}

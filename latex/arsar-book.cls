@@ -8,6 +8,7 @@
 
 \RequirePackage{babel}
 \RequirePackage{shorttoc}
+\RequirePackage{arsar}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

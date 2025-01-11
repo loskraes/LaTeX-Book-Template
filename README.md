@@ -17,6 +17,20 @@
  - `latexdiff-vc`
    - Utilisé lors de la génération de diff
 
+## Commande LaTeX utiles
+
+### `\input` un fichier générer par make
+
+Compile le fichier à la demande (si la compilation est lancer avec `latexmk -use-make`) et l'inclus.
+La commande est fournie par le paquet `arsar` (`latex/arsar.sty`).
+
+```latex
+% utilisez 
+\inputMake{filename}
+% à la place de
+\input{filename}
+```
+
 ## Fonctionnalité
 
 ### Compilation d'un document racine
