@@ -9,9 +9,11 @@ PDF=$(patsubst %.tex,%.pdf,$(LATEX))
 DIRTY_TAG=-dirty
 DIRTY_TAG_REGEX=$(DIRTY_TAG)
 
-LATEXFLAGS=-pdf -M -MP -MF $(notdir $*).d -use-make
+LATEX_MAX_REPEAT ?= 5
 
-TOOLS_DIR ?= ../tools
+LATEXFLAGS=-pdf -M -MP -MF $(notdir $*).d -use-make -e "\$$max_repeat=$(LATEX_MAX_REPEAT)" -interaction=batchmode
+
+TOOLS_DIR ?= $(shell pwd)/tools
 PATH := $(TOOLS_DIR)/bin:$(PATH)
 
 
@@ -72,7 +74,15 @@ _dyn/git-date.tex: tools
 	echo -n '}' >> $@
 
 
-dist-clean:
+clean:
+	latexmk -c
+	cd content && latexmk -c
+	rm -fr _dyn
+	rm -fr *.d */*.d
+	rm -f *-oldtmp-[0-9]*.tex
+	rm -f *-oldtmp-[0-9]*.tex.rej
+	rm -f */*-oldtmp-[0-9]*.tex
+	rm -f */*-oldtmp-[0-9]*.tex.rej
+dist-clean: clean
 	latexmk -C
 	cd content && latexmk -C
-	rm -fr *.d */*.d

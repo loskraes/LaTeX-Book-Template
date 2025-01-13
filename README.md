@@ -8,7 +8,7 @@ Les outils suivants doivent être dans le path.
  - `make`
  - `latexmk`
  - `sed`
-   - Modification de la version pour enlever l'identifiant du commit
+ - `grep`
  - `tail`
    - Récupération de la version précédente
  - `head`
