@@ -89,6 +89,13 @@ make content/<chapter>.pdf.pvc
 make diff/v0.0.1
 make diff/HEAD
 make diff/<hash>
+make diff/<ref>
+make diff/<ref>.zip
+make diff/<ref>.tar
+make diff/<ref>.tar.gz
+make diff/<ref>.tar.xz
+make diff/<ref>.tar.bz2
+make diff/<ref>.tar.lzma
 ```
 
 #### Entre deux versions ou commits spécifiques
@@ -96,3 +103,18 @@ make diff/<hash>
 ```sh
 make diff/<first-ref>..<second-ref>
 ```
+
+#### Pour un document ou un sous document spécifique
+
+```sh
+make diff/<hash>/<filename>.pdf
+```
+
+Si vous désirez générer plusieurs diff en même temps, il faut les mettre dans
+la même commande make, sinon, les pdf précédents sont supprimé
+
+
+```sh
+make diff/<hash>/<filename1>.pdf diff/<hash>/<filename2>.pdf ...
+```
+

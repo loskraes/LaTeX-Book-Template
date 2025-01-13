@@ -13,7 +13,7 @@ LATEX_MAX_REPEAT ?= 5
 
 LATEXFLAGS=-pdf -M -MP -MF $(notdir $*).d -use-make -e "\$$max_repeat=$(LATEX_MAX_REPEAT)" -interaction=batchmode
 
-TOOLS_DIR ?= $(shell pwd)/tools
+TOOLS_DIR ?= $(shell pwd)/../tools
 PATH := $(TOOLS_DIR)/bin:$(PATH)
 
 
