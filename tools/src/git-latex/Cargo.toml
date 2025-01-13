@@ -1,0 +1,9 @@
+[package]
+name = "git-latex"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = "0.4.39"
+regex = "1.11.1"
+wildcard_ex = "0.1.2"

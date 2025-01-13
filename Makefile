@@ -6,9 +6,16 @@ VERSIONS=$(shell git tag --list --merged HEAD --sort=authordate 'v[0-9]*' 2> /de
 
 DIFFCOMPLETE=HEAD $(VERSIONS)
 
+TOOLS_DIR ?= ./tools
+
 SHELL := /bin/bash
+PATH := $(TOOLS_DIR)/bin:$(PATH)
 
 all: pdf
+
+.PHONY: tools
+tools:
+	cd $(TOOLS_DIR) && $(MAKE)
 
 pdf: 
 	cd latex && $(MAKE) $(patsubst %,%.pdf,$(LATEX_BASE))

@@ -9,6 +9,7 @@
 \RequirePackage{babel}
 \RequirePackage{shorttoc}
 \RequirePackage{arsar}
+\RequirePackage[colorlinks,unicode]{hyperref}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
